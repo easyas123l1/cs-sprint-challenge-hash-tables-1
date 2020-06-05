@@ -1,13 +1,28 @@
-# Your code here
-
+"""
+    Plan turn file paths into file names by removing 
+    all of string left to the last '/'.  Set the key in 
+    cache to this shortened file name and the value to 
+    an array with this filepath as string unless already 
+    exist.  If exist we append the filepath.  Lastly we loop 
+    thru all queries and if query is in cache we append
+    all items into result.
+    """
 
 
 def finder(files, queries):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
-
+    result = []
+    cache = {}
+    for file in files:
+        index = file.rindex('/')
+        rest = file[index+1:]
+        if rest in cache:
+            cache[rest].append(file)
+        else:
+            cache[rest] = [file]
+    for query in queries:
+        if query in cache:
+            for i in cache[query]:
+                result.append(i)
     return result
 
 

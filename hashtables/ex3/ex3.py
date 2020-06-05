@@ -1,8 +1,29 @@
 def intersection(arrays):
     """
-    YOUR CODE HERE
+    create a list of caches of each array.
+    compare the first cache to all other 
+    caches and find if #s exist in all other cache
+    if so add to result 
     """
-    # Your code here
+    result = []
+    caches = []
+
+    for i in range(len(arrays)):
+        cache = {}
+        for j in range(len(arrays[i])):
+            cache[arrays[i][j]] = 1
+
+        caches.append(cache)
+
+    first = caches[0]
+    rest = caches[1:]
+    for key in first:
+        add = True
+        for cach in rest:
+            if key not in cach:
+                add = False
+        if add:
+            result.append(key)
 
     return result
 
