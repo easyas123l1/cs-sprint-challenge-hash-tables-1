@@ -1,6 +1,9 @@
 def has_negatives(a):
     """
-    YOUR CODE HERE
+    create a cache that holds keys as numbers and look 
+    for the opposite (n *= -1) in cache.  if it exist 
+    then add the larger of the 2 numbers to the result.
+    edge case x can't be 0.
     """
     # Your code here
     cache = {}
